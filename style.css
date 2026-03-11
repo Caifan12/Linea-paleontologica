@@ -163,3 +163,36 @@ footer {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     border-left: 5px solid #3498db;
 }
+/* --- AJUSTES PARA CELULARES Y TABLETS --- */
+@media (max-width: 768px) {
+    
+    /* 1. Hacemos que el contenedor ocupe todo el ancho */
+    .timeline-wrapper {
+        padding: 10px;
+        overflow-x: auto; /* Permite scroll horizontal si la imagen es muy grande */
+    }
+
+    .main-image {
+        width: 1000px; /* Mantenemos un ancho mínimo para que los puntos no se amontonen */
+        max-width: none; 
+    }
+
+    /* 2. Hacemos los puntos un poco más grandes para que sea fácil tocarlos con el dedo */
+    .circle {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* 3. Ajustamos el cuadro de información (Tooltip) */
+    .hotspot:hover::after {
+        width: 200px; /* Más angosto para pantallas pequeñas */
+        font-size: 12px;
+        padding: 10px;
+        bottom: 130%; /* Lo alejamos un poco más del dedo */
+    }
+
+    /* 4. Títulos de los eones/eras más legibles */
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
