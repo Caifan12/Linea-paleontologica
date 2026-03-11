@@ -163,45 +163,46 @@ footer {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     border-left: 5px solid #3498db;
 }
-/* --- AJUSTES PARA CELULARES Y TABLETS (VERSIÓN BLINDADA) --- */
+/* --- AJUSTES PARA CELULARES Y TABLETS (MODO APP) --- */
 @media (max-width: 768px) {
-    /* 1. La ventana por donde miramos (permite deslizar el dedo) */
+    /* 1. Mantenemos el deslizamiento horizontal */
     .timeline-wrapper {
-        width: 100% !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        -webkit-overflow-scrolling: touch !important;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* 2. El lienzo RÍGIDO (no dejamos que el celular lo encoja) */
+    /* 2. La imagen sigue grande para que no se amontone nada */
     .img-container {
         width: 1200px !important;
         min-width: 1200px !important;
-        position: relative !important;
-        display: block !important;
+        position: relative;
+        display: inline-block;
     }
-
-    /* 3. La imagen de tu línea de tiempo (mantiene su tamaño original) */
+    
     .main-image {
         width: 1200px !important;
-        max-width: 1200px !important;
-        height: auto !important;
+        max-width: none;
     }
 
-    /* 4. Forzamos a que los círculos sean perfectos y pequeños */
+    /* 3. Círculos redondos y fáciles de tocar */
     .hotspot {
-        width: 25px !important;
-        height: 25px !important;
         min-width: 25px !important;
         min-height: 25px !important;
-        border-radius: 50% !important;
     }
 
-    /* 5. Cajas de texto centradas sobre el dedo */
+    /* 4. LA MAGIA: El cuadro de texto se vuelve un Pop-up central */
     .hotspot:hover::after, .hotspot:active::after {
-        width: 200px !important;
+        position: fixed !important;
+        top: 50% !important;
         left: 50% !important;
-        transform: translateX(-50%) !important;
+        transform: translate(-50%, -50%) !important;
+        width: 85vw !important; /* Ancho perfecto para el celular */
+        max-width: 320px !important;
+        font-size: 15px !important;
+        padding: 20px !important;
+        z-index: 9999 !important;
+        box-shadow: 0 0 0 100vh rgba(0,0,0,0.6) !important; /* Oscurece el resto de la pantalla */
         white-space: normal !important;
     }
 }
