@@ -5,6 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Línea del tiempo:evolución de la paleontología</title>
     <link rel="stylesheet" href="style.css?v=3">
+    <style>
+        /* OPCIÓN NUCLEAR PARA MÓVILES */
+        @media (max-width: 768px) {
+            /* 1. Habilitamos el scroll horizontal */
+            .timeline-wrapper {
+                width: 100% !important;
+                overflow-x: scroll !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* 2. PROHIBIMOS que el contenedor se encoja */
+            .img-container {
+                width: 1200px !important; 
+                min-width: 1200px !important;
+                position: relative !important;
+                display: block !important;
+            }
+
+            /* 3. PROHIBIMOS que la imagen se encoja (El verdadero problema) */
+            .main-image {
+                width: 1200px !important;
+                max-width: none !important; /* Esto destruye el aplastamiento del celular */
+                display: block !important;
+            }
+
+            /* 4. Círculos perfectos y fijos */
+            .hotspot {
+                width: 40px !important;
+                height: 40px !important;
+                border-radius: 50% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+
+            /* 5. Mantenemos el Pop-up que ya funciona genial */
+            .hotspot:hover::after, .hotspot:active::after {
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 85vw !important;
+                max-width: 320px !important;
+                font-size: 15px !important;
+                padding: 20px !important;
+                z-index: 99999 !important;
+                background-color: #2c3e50 !important;
+                color: white !important;
+                box-shadow: 0 0 0 100vh rgba(0,0,0,0.7) !important;
+                white-space: normal !important;
+            }
+        }
+    </style>
+</head>
 </head>
 <body>
 
