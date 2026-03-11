@@ -165,41 +165,37 @@ footer {
 }
 /* --- AJUSTES PARA CELULARES Y TABLETS --- */
 @media (max-width: 768px) {
-    /* 1. Bloqueamos el scroll horizontal en toda la página */
     body {
         overflow-x: hidden; 
-        margin: 0;
-        padding: 0;
     }
 
-    /* 2. El encabezado siempre ocupará el 100% de la pantalla */
-    header {
+    /* 1. La barra de desplazamiento ahora va en el envoltura exterior */
+    .timeline-wrapper {
         width: 100%;
-        box-sizing: border-box;
+        overflow-x: auto; /* El scroll va aquí */
+        padding-bottom: 20px;
     }
 
-    /* 3. Aislamos la imagen para que SOLO ELLA se pueda deslizar de lado a lado */
+    /* 2. El contenedor abraza la imagen y los puntos: DEBE medir lo mismo que la imagen */
     .img-container {
-        width: 100%;
-        overflow-x: auto; 
-        overflow-y: hidden;
-        position: relative;
-        padding-bottom: 20px; /* Espacio para que el dedo deslice bien */
+        width: 1200px; /* Ancho fijo igual al de la imagen */
+        position: relative; /* Mantiene a los puntos anclados aquí */
+        overflow: visible;
     }
 
-    /* 4. Estiramos la imagen para que los puntos interactivos no se aplasten */
+    /* 3. La imagen simplemente llena a su contenedor */
     .main-image {
-        width: 1200px; 
+        width: 100%; 
         max-width: none;
         display: block;
     }
 
-    /* 5. Centramos los cuadros de texto para que no se salgan de la pantalla */
+    /* 4. Centramos los cuadros de texto para que no se salgan */
     .hotspot:hover::after {
         width: 220px;
         font-size: 13px;
         left: 50%;
-        transform: translateX(-50%); /* Esto es magia pura: lo centra perfectamente */
+        transform: translateX(-50%);
         bottom: 130%;
         white-space: normal;
     }
