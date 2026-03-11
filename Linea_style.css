@@ -1,0 +1,165 @@
+/* Estilos Generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+}
+
+/* Contenedor de la Imagen */
+.timeline-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.img-container {
+    position: absolute;
+    display: inline-block;
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-image {
+    position: relative;
+    display: block;
+    width: 1600px; /* Ajusta según el tamaño de tu imagen */
+    height: auto;
+}
+
+/* Puntos Interactivos (Hotspots) */
+.hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(52, 152, 219, 0.7);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.hotspot:hover {
+    background-color: #e74c3c;
+    transform: scale(1.5);
+}
+
+/* Animación de pulso para llamar la atención */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}
+
+/* Ventana Emergente (Tooltip) */
+.hotspot::after {
+    content: "▼ " attr(data-title) "\A" attr(data-body);
+    white-space: pre-wrap;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background: rgba(44, 62, 80, 0.95);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: left;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.hotspot:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+/* Estilo base para todas las áreas interactivas */
+.hotspot {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.05);
+    cursor: help;
+    transition: background-color 0.3s;
+}
+
+.hotspot:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* POSICIONAMIENTO ESPECÍFICO POR ID */
+
+#arcaico {
+    top: 54%;
+    left: 27.4%;
+    width: 10%;
+    height: 25%;
+}
+
+#proterozoico {
+    top: 54%;
+    left: 38%;
+    width: 10%;
+    height: 25%;
+}
+
+#paleozoico {
+    top: 64%;
+    left: 48.5%;
+    width: 9%;
+    height: 19%;
+}
+
+#mesozoico {
+    top: 64%;
+    left: 58.3%;
+    width: 9%;
+    height: 19%;
+}
+
+#cenozoico {
+    top: 64%;
+    left: 68.6%;
+    width: 9%;
+    height: 19%;
+}
+
+/* CAJA DE TEXTO (Tooltip) */
+.hotspot:hover::after {
+    content: attr(data-title) "\A\A" attr(data-body);
+    white-space: pre-wrap;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    padding: 15px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    z-index: 100;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    border-left: 5px solid #3498db;
+}
