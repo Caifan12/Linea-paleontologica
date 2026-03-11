@@ -163,44 +163,38 @@ footer {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     border-left: 5px solid #3498db;
 }
-/* --- AJUSTES PARA CELULARES Y TABLETS (VERSIÓN FINAL) --- */
+/* --- AJUSTES PARA CELULARES (DISEÑO FLUIDO) --- */
 @media (max-width: 768px) {
-    /* 1. Mantenemos el deslizamiento fluido horizontal */
+    /* 1. El contenedor respeta el ancho de tu celular */
     .timeline-wrapper {
-        width: 100% !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
-    /* 2. Fijamos la imagen y su contenedor al mismo tamaño exacto */
+    /* 2. La imagen y su caja se adaptan al 100% de la pantalla */
     .img-container {
-        width: 1200px !important;
-        min-width: 1200px !important;
-        height: auto !important;
-        position: relative !important;
-        display: block !important;
-        overflow: visible !important;
+        width: 100% !important;
+        position: relative;
     }
     
     .main-image {
-        width: 1200px !important;
+        width: 100% !important;
         height: auto !important;
-        display: block !important;
+        display: block;
     }
 
-    /* 3. ADIÓS ÓVALOS GIGANTES: Forzamos círculos perfectos */
+    /* 3. Los círculos se hacen pequeños pero se mantienen en su lugar */
     .hotspot {
-        width: 35px !important;      /* Ancho fijo */
-        height: 35px !important;     /* Alto fijo */
-        min-width: 35px !important;
-        min-height: 35px !important;
-        border-radius: 50% !important; /* Los hace completamente redondos */
-        padding: 0 !important;
-        margin: 0 !important;
-        transform: translate(-50%, -50%) !important; /* Centra el botón exactamente en su coordenada */
+        width: 4vw !important; /* Usa porcentaje de la pantalla para no deformarse */
+        height: 4vw !important;
+        min-width: 15px !important;
+        min-height: 15px !important;
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
 
-    /* 4. Cuadros de texto estilo Pop-up centrado */
+    /* 4. Tu Pop-up central oscuro (Este ya funcionaba perfecto) */
     .hotspot:hover::after, .hotspot:active::after {
         position: fixed !important;
         top: 50% !important;
@@ -208,13 +202,13 @@ footer {
         transform: translate(-50%, -50%) !important;
         width: 85vw !important;
         max-width: 300px !important;
-        font-size: 15px !important;
-        padding: 20px !important;
+        font-size: 14px !important;
+        padding: 15px !important;
         z-index: 9999 !important;
         background-color: #2c3e50 !important;
         color: white !important;
-        border-radius: 10px !important;
-        box-shadow: 0 0 0 100vh rgba(0,0,0,0.7) !important; /* Fondo oscuro */
-        white-space: pre-wrap !important;
+        border-radius: 8px !important;
+        box-shadow: 0 0 0 100vh rgba(0,0,0,0.7) !important;
+        white-space: normal !important;
     }
 }
