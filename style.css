@@ -163,40 +163,45 @@ footer {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     border-left: 5px solid #3498db;
 }
-/* --- AJUSTES PARA CELULARES Y TABLETS --- */
+/* --- AJUSTES PARA CELULARES Y TABLETS (VERSIÓN BLINDADA) --- */
 @media (max-width: 768px) {
-    body {
-        overflow-x: hidden; 
-    }
-
-    /* 1. La barra de desplazamiento ahora va en el envoltura exterior */
+    /* 1. La ventana por donde miramos (permite deslizar el dedo) */
     .timeline-wrapper {
-        width: 100%;
-        overflow-x: auto; /* El scroll va aquí */
-        padding-bottom: 20px;
+        width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
-    /* 2. El contenedor abraza la imagen y los puntos: DEBE medir lo mismo que la imagen */
+    /* 2. El lienzo RÍGIDO (no dejamos que el celular lo encoja) */
     .img-container {
-        width: 1200px; /* Ancho fijo igual al de la imagen */
-        position: relative; /* Mantiene a los puntos anclados aquí */
-        overflow: visible;
+        width: 1200px !important;
+        min-width: 1200px !important;
+        position: relative !important;
+        display: block !important;
     }
 
-    /* 3. La imagen simplemente llena a su contenedor */
+    /* 3. La imagen de tu línea de tiempo (mantiene su tamaño original) */
     .main-image {
-        width: 100%; 
-        max-width: none;
-        display: block;
+        width: 1200px !important;
+        max-width: 1200px !important;
+        height: auto !important;
     }
 
-    /* 4. Centramos los cuadros de texto para que no se salgan */
-    .hotspot:hover::after {
-        width: 220px;
-        font-size: 13px;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 130%;
-        white-space: normal;
+    /* 4. Forzamos a que los círculos sean perfectos y pequeños */
+    .hotspot {
+        width: 25px !important;
+        height: 25px !important;
+        min-width: 25px !important;
+        min-height: 25px !important;
+        border-radius: 50% !important;
+    }
+
+    /* 5. Cajas de texto centradas sobre el dedo */
+    .hotspot:hover::after, .hotspot:active::after {
+        width: 200px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        white-space: normal !important;
     }
 }
